@@ -4,12 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TCS Analytics Day</title>
-    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- Optional Bootstrap Icons (for optional icons) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
       rel="stylesheet"
@@ -18,16 +16,24 @@
       /* Custom Styles */
       .carousel-item img {
         width: 100%;
-        height: 500px; /* Fixed height for consistent image size */
+        height: 500px;
         object-fit: cover;
       }
 
       .carousel-caption h5 {
         font-size: 2rem;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
       }
 
       .carousel-caption p {
         font-size: 1.2rem;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .carousel-caption.show {
+        opacity: 1;
       }
 
       .container {
@@ -54,77 +60,75 @@
         width: 12px;
         height: 12px;
         margin: 0 5px;
-        border: 1px dotted #bbb; /* Make it dotted */
+        border: 1px dotted #bbb;
       }
 
       .carousel-indicators .active {
-        background-color: #007bff; /* Blue color for the active dot */
-        border: 1px dotted #007bff; /* Active dot should have a dotted blue border */
+        background-color: #007bff;
+        border: 1px dotted #007bff;
       }
 
-      /* Fade-in Animation */
-      .fade-in {
-        animation: fadeIn 2s ease-in-out;
+      /* Progress Bar */
+      .carousel-progress-bar-wrapper {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 5px;
+        background-color: rgba(0, 0, 0, 0.1);
       }
 
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      .carousel-progress-bar {
+        height: 100%;
+        width: 0;
+        background-color: #007bff;
+        transition: width 0.8s ease;
+        transition-timing-function: linear;
       }
 
-      /* Responsive Design for Smaller Screens */
+      /* Responsive Design */
       @media (max-width: 768px) {
         .carousel-item img {
-          height: 300px; /* Reduce height for smaller screens */
+          height: 300px;
         }
 
         .carousel-caption h5 {
-          font-size: 1.5rem; /* Smaller font size for titles on mobile */
+          font-size: 1.5rem;
         }
 
         .carousel-caption p {
-          font-size: 1rem; /* Smaller font size for text on mobile */
+          font-size: 1rem;
         }
 
         .section-title {
-          font-size: 1.5rem; /* Smaller title size for mobile */
+          font-size: 1.5rem;
         }
       }
 
       @media (max-width: 480px) {
         .carousel-item img {
-          height: 250px; /* Further reduce height for very small screens */
+          height: 250px;
         }
 
         .carousel-caption h5 {
-          font-size: 1.2rem; /* Even smaller font for very small screens */
+          font-size: 1.2rem;
         }
 
         .carousel-caption p {
-          font-size: 0.9rem; /* Smaller text for better readability on small screens */
+          font-size: 0.9rem;
         }
 
         .section-title {
-          font-size: 1.2rem; /* Further reduce section title for smaller screens */
+          font-size: 1.2rem;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Main Container -->
     <div class="container">
       <h1 class="section-title">Welcome to TCS Analytics Day</h1>
 
-      <!-- Carousel Section -->
-      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
         <div class="carousel-inner">
-          <!-- First Slide -->
           <div class="carousel-item active">
             <a href="https://example.com" target="_blank">
               <img
@@ -132,16 +136,15 @@
                 alt="Event Overview"
               />
             </a>
-            <div class="carousel-caption d-none d-md-block fade-in">
-              <h5>Event Overview</h5>
-              <p>
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="show">Event Overview</h5>
+              <p class="show">
                 Explore the key highlights of the TCS Analytics Day, featuring
                 cutting-edge innovations in AI and data science.
               </p>
             </div>
           </div>
 
-          <!-- Second Slide -->
           <div class="carousel-item">
             <a href="https://example.org" target="_blank">
               <img
@@ -158,7 +161,6 @@
             </div>
           </div>
 
-          <!-- Third Slide -->
           <div class="carousel-item">
             <a href="https://sample.com" target="_blank">
               <img
@@ -175,7 +177,6 @@
             </div>
           </div>
 
-          <!-- Fourth Slide -->
           <div class="carousel-item">
             <a href="https://another-example.com" target="_blank">
               <img
@@ -193,7 +194,6 @@
           </div>
         </div>
 
-        <!-- Carousel Indicators (Dotted) -->
         <div class="carousel-indicators">
           <button
             type="button"
@@ -223,7 +223,6 @@
           ></button>
         </div>
 
-        <!-- Carousel Controls -->
         <button
           class="carousel-control-prev"
           type="button"
@@ -244,16 +243,63 @@
         </button>
       </div>
 
-      <!-- Call-to-Action Section -->
+      <div class="carousel-progress-bar-wrapper">
+        <div class="carousel-progress-bar" id="progressBar"></div>
+      </div>
+
       <div class="text-center mt-5">
-        <a href="#register" class="btn btn-primary btn-lg"
-          >Register for the Event</a
-        >
+        <a href="#register" class="btn btn-primary btn-lg">Register for the Event</a>
       </div>
     </div>
 
-    <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      const carousel = document.querySelector("#carouselExample");
+      const progressBar = document.querySelector("#progressBar");
+      let progress = 0;
+      const progressInterval = 10000;
+      let intervalId;
+
+      function updateProgressBar() {
+        progress = 0;
+        progressBar.style.width = "0%";
+        clearInterval(intervalId);
+        intervalId = setInterval(() => {
+          if (progress < 100) {
+            progress += 100 / (progressInterval / 10);
+            progressBar.style.width = `${progress}%`;
+          } else {
+            clearInterval(intervalId);
+          }
+        }, 10);
+      }
+
+      // Initialize progress bar and set interval for slides.
+      updateProgressBar();
+      carousel.addEventListener("slide.bs.carousel", () => {
+        updateProgressBar();
+      });
+
+
+      carousel.addEventListener("slid.bs.carousel", (event) => {
+        const currentSlide = event.relatedTarget;
+
+        document.querySelectorAll(".carousel-caption").forEach((caption) => {
+          caption.querySelector('h5').classList.remove('show');
+          caption.querySelector('p').classList.remove('show');
+        });
+
+        setTimeout(() => {
+            const currentCaption = currentSlide.querySelector(".carousel-caption");
+            if(currentCaption){
+              currentCaption.querySelector('h5').classList.add('show');
+              currentCaption.querySelector('p').classList.add('show');
+            }
+        }, 500);
+
+      });
+    </script>
   </body>
 </html>
