@@ -1,305 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TCS Analytics Day</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional Bootstrap Icons (for optional icons) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-      /* Custom Styles */
-      .carousel-item img {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-      }
-
-      .carousel-caption h5 {
-        font-size: 2rem;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-      }
-
-      .carousel-caption p {
-        font-size: 1.2rem;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-      }
-
-      .carousel-caption.show {
-        opacity: 1;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .section-title {
-        text-align: center;
-        margin-top: 50px;
-        font-size: 2rem;
-        font-weight: bold;
-        color: #333;
-      }
-
-      /* Dotted Indicators */
-      .carousel-indicators {
-        bottom: -30px;
-      }
-
-      .carousel-indicators li {
-        background-color: #bbb;
-        border-radius: 50%;
-        width: 12px;
-        height: 12px;
-        margin: 0 5px;
-        border: 1px dotted #bbb;
-      }
-
-      .carousel-indicators .active {
-        background-color: #007bff;
-        border: 1px dotted #007bff;
-      }
-
-      /* Progress Bar */
-      .carousel-progress-bar-wrapper {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 5px;
-        background-color: rgba(0, 0, 0, 0.1);
-      }
-
-      .carousel-progress-bar {
-        height: 100%;
-        width: 0;
-        background-color: #007bff;
-        transition: width 0.8s ease;
-        transition-timing-function: linear;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
+        /* Custom Styles */
         .carousel-item img {
-          height: 300px;
+            width: 100%;
+            height: 500px; /* Fixed height for consistent image size */
+            object-fit: cover;
         }
 
         .carousel-caption h5 {
-          font-size: 1.5rem;
+            font-size: 2rem;
         }
 
         .carousel-caption p {
-          font-size: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-title {
-          font-size: 1.5rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .carousel-item img {
-          height: 250px;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
         }
 
-        .carousel-caption h5 {
-          font-size: 1.2rem;
+        /* Dotted Indicators */
+        .carousel-indicators {
+            bottom: -30px;
         }
 
-        .carousel-caption p {
-          font-size: 0.9rem;
+        .carousel-indicators li {
+            background-color: #bbb;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            border: 1px dotted #bbb; /* Make it dotted */
         }
 
-        .section-title {
-          font-size: 1.2rem;
+        .carousel-indicators .active {
+            background-color: #007bff; /* Blue color for the active dot */
+            border: 1px dotted #007bff; /* Active dot should have a dotted blue border */
         }
-      }
+
+        /* Fade-in Animation */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Progress Bar */
+        .carousel-progress-bar-wrapper {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 5px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #007bff;
+            transition: width 0.1s linear;
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 300px; /* Reduce height for smaller screens */
+            }
+
+            .carousel-caption h5 {
+                font-size: 1.5rem; /* Smaller font size for titles on mobile */
+            }
+
+            .carousel-caption p {
+                font-size: 1rem; /* Smaller font size for text on mobile */
+            }
+
+            .section-title {
+                font-size: 1.5rem; /* Smaller title size for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-item img {
+                height: 250px; /* Further reduce height for very small screens */
+            }
+
+            .carousel-caption h5 {
+                font-size: 1.2rem; /* Even smaller font for very small screens */
+            }
+
+            .carousel-caption p {
+                font-size: 0.9rem; /* Smaller text for better readability on small screens */
+            }
+
+            .section-title {
+                font-size: 1.2rem; /* Further reduce section title for smaller screens */
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+    <!-- Main Container -->
     <div class="container">
-      <h1 class="section-title">Welcome to TCS Analytics Day</h1>
+        <h1 class="section-title">Welcome to TCS Analytics Day</h1>
 
-      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <a href="https://example.com" target="_blank">
-              <img
-                src="https://picsum.photos/1200/500?random=1"
-                alt="Event Overview"
-              />
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class="show">Event Overview</h5>
-              <p class="show">
-                Explore the key highlights of the TCS Analytics Day, featuring
-                cutting-edge innovations in AI and data science.
-              </p>
-            </div>
-          </div>
+        <!-- Carousel Section -->
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- First Slide -->
+                <div class="carousel-item active">
+                    <a href="https://example.com" target="_blank">
+                        <img src="https://picsum.photos/1200/500?random=1" alt="Event Overview">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block fade-in">
+                        <h5>Event Overview</h5>
+                        <p>Explore the key highlights of the TCS Analytics Day, featuring cutting-edge innovations in AI and data science.</p>
+                    </div>
+                </div>
 
-          <div class="carousel-item">
-            <a href="https://example.org" target="_blank">
-              <img
-                src="https://picsum.photos/1200/500?random=2"
-                alt="Speakers and Sessions"
-              />
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Speakers and Sessions</h5>
-              <p>
-                Meet industry leaders and experts from TCS and global analytics
-                giants who will lead insightful sessions.
-              </p>
-            </div>
-          </div>
+                <!-- Second Slide -->
+                <div class="carousel-item">
+                    <a href="https://example.org" target="_blank">
+                        <img src="https://picsum.photos/1200/500?random=2" alt="Speakers and Sessions">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Speakers and Sessions</h5>
+                        <p>Meet industry leaders and experts from TCS and global analytics giants who will lead insightful sessions.</p>
+                    </div>
+                </div>
 
-          <div class="carousel-item">
-            <a href="https://sample.com" target="_blank">
-              <img
-                src="https://picsum.photos/1200/500?random=3"
-                alt="Agenda and Schedule"
-              />
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Agenda and Schedule</h5>
-              <p>
-                Stay updated with the event’s agenda. Find out when and where
-                your favorite sessions are happening!
-              </p>
-            </div>
-          </div>
+                <!-- Third Slide -->
+                <div class="carousel-item">
+                    <a href="https://sample.com" target="_blank">
+                        <img src="https://picsum.photos/1200/500?random=3" alt="Agenda and Schedule">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Agenda and Schedule</h5>
+                        <p>Stay updated with the event’s agenda. Find out when and where your favorite sessions are happening!</p>
+                    </div>
+                </div>
 
-          <div class="carousel-item">
-            <a href="https://another-example.com" target="_blank">
-              <img
-                src="https://picsum.photos/1200/500?random=4"
-                alt="Networking Opportunities"
-              />
-            </a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Networking Opportunities</h5>
-              <p>
-                Connect with peers, speakers, and analysts to expand your
-                network and gain new perspectives.
-              </p>
+                <!-- Fourth Slide -->
+                <div class="carousel-item">
+                    <a href="https://another-example.com" target="_blank">
+                        <img src="https://picsum.photos/1200/500?random=4" alt="Networking Opportunities">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Networking Opportunities</h5>
+                        <p>Connect with peers, speakers, and analysts to expand your network and gain new perspectives.</p>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- Carousel Indicators (Dotted) -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
 
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide-to="3"
-            aria-label="Slide 4"
-          ></button>
+        <!-- Progress Bar -->
+        <div class="carousel-progress-bar-wrapper">
+            <div class="carousel-progress-bar" id="progressBar"></div>
         </div>
 
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-
-      <div class="carousel-progress-bar-wrapper">
-        <div class="carousel-progress-bar" id="progressBar"></div>
-      </div>
-
-      <div class="text-center mt-5">
-        <a href="#register" class="btn btn-primary btn-lg">Register for the Event</a>
-      </div>
+        <!-- Call-to-Action Section -->
+        <div class="text-center mt-5">
+            <a href="#register" class="btn btn-primary btn-lg">Register for the Event</a>
+        </div>
     </div>
 
+    <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
+    <!-- Custom JS -->
     <script>
-      const carousel = document.querySelector("#carouselExample");
-      const progressBar = document.querySelector("#progressBar");
-      let progress = 0;
-      const progressInterval = 10000;
-      let intervalId;
+        // Get the carousel element
+        const carousel = document.querySelector('#carouselExample');
+        const progressBar = document.querySelector('#progressBar');
+        let progress = 0;
 
-      function updateProgressBar() {
-        progress = 0;
-        progressBar.style.width = "0%";
-        clearInterval(intervalId);
-        intervalId = setInterval(() => {
-          if (progress < 100) {
-            progress += 100 / (progressInterval / 10);
-            progressBar.style.width = `${progress}%`;
-          } else {
-            clearInterval(intervalId);
-          }
-        }, 10);
-      }
+        // Set the interval for the progress bar update (e.g., 5 seconds per slide)
+        const progressInterval = 5000; // 5 seconds per slide
 
-      // Initialize progress bar and set interval for slides.
-      updateProgressBar();
-      carousel.addEventListener("slide.bs.carousel", () => {
-        updateProgressBar();
-      });
+        // Function to update the progress bar
+        function updateProgressBar() {
+            progress = 0;
+            progressBar.style.width = '0%';
+            const interval = setInterval(() => {
+                if (progress < 100) {
+                    progress += (100 / progressInterval);
+                    progressBar.style.width = `${progress}%`;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 10);
+        }
 
-
-      carousel.addEventListener("slid.bs.carousel", (event) => {
-        const currentSlide = event.relatedTarget;
-
-        document.querySelectorAll(".carousel-caption").forEach((caption) => {
-          caption.querySelector('h5').classList.remove('show');
-          caption.querySelector('p').classList.remove('show');
+        // Listen to carousel slide events to trigger the progress bar reset
+        carousel.addEventListener('slid.bs.carousel', () => {
+            updateProgressBar();
         });
 
-        setTimeout(() => {
-            const currentCaption = currentSlide.querySelector(".carousel-caption");
-            if(currentCaption){
-              currentCaption.querySelector('h5').classList.add('show');
-              currentCaption.querySelector('p').classList.add('show');
-            }
-        }, 500);
-
-      });
+        // Initialize the progress bar on the first slide
+        updateProgressBar();
     </script>
-  </body>
+</body>
 </html>
