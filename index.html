@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCS Analytics Day</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Optional Bootstrap Icons (for optional icons) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom Styles */
+      .carousel-item img {
+        width: 100%;
+        height: 500px; /* Fixed height for consistent image size */
+        object-fit: cover;
+      }
+
+      .carousel-caption h5 {
+        font-size: 2rem;
+      }
+
+      .carousel-caption p {
+        font-size: 1.2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      /* Dotted Indicators */
+      .carousel-indicators {
+        bottom: -30px;
+      }
+
+      .carousel-indicators li {
+        background-color: #bbb;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        border: 1px dotted #bbb; /* Make it dotted */
+      }
+
+      .carousel-indicators .active {
+        background-color: #007bff; /* Blue color for the active dot */
+        border: 1px dotted #007bff; /* Active dot should have a dotted blue border */
+      }
+
+      /* Fade-in Animation */
+      .fade-in {
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design for Smaller Screens */
+      @media (max-width: 768px) {
+        .carousel-item img {
+          height: 300px; /* Reduce height for smaller screens */
+        }
+
+        .carousel-caption h5 {
+          font-size: 1.5rem; /* Smaller font size for titles on mobile */
+        }
+
+        .carousel-caption p {
+          font-size: 1rem; /* Smaller font size for text on mobile */
+        }
+
+        .section-title {
+          font-size: 1.5rem; /* Smaller title size for mobile */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .carousel-item img {
+          height: 250px; /* Further reduce height for very small screens */
+        }
+
+        .carousel-caption h5 {
+          font-size: 1.2rem; /* Even smaller font for very small screens */
+        }
+
+        .carousel-caption p {
+          font-size: 0.9rem; /* Smaller text for better readability on small screens */
+        }
+
+        .section-title {
+          font-size: 1.2rem; /* Further reduce section title for smaller screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div class="container">
+      <h1 class="section-title">Welcome to TCS Analytics Day</h1>
+
+      <!-- Carousel Section -->
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- First Slide -->
+          <div class="carousel-item active">
+            <a href="https://example.com" target="_blank">
+              <img
+                src="https://picsum.photos/1200/500?random=1"
+                alt="Event Overview"
+              />
+            </a>
+            <div class="carousel-caption d-none d-md-block fade-in">
+              <h5>Event Overview</h5>
+              <p>
+                Explore the key highlights of the TCS Analytics Day, featuring
+                cutting-edge innovations in AI and data science.
+              </p>
+            </div>
+          </div>
+
+          <!-- Second Slide -->
+          <div class="carousel-item">
+            <a href="https://example.org" target="_blank">
+              <img
+                src="https://picsum.photos/1200/500?random=2"
+                alt="Speakers and Sessions"
+              />
+            </a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Speakers and Sessions</h5>
+              <p>
+                Meet industry leaders and experts from TCS and global analytics
+                giants who will lead insightful sessions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Third Slide -->
+          <div class="carousel-item">
+            <a href="https://sample.com" target="_blank">
+              <img
+                src="https://picsum.photos/1200/500?random=3"
+                alt="Agenda and Schedule"
+              />
+            </a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Agenda and Schedule</h5>
+              <p>
+                Stay updated with the event’s agenda. Find out when and where
+                your favorite sessions are happening!
+              </p>
+            </div>
+          </div>
+
+          <!-- Fourth Slide -->
+          <div class="carousel-item">
+            <a href="https://another-example.com" target="_blank">
+              <img
+                src="https://picsum.photos/1200/500?random=4"
+                alt="Networking Opportunities"
+              />
+            </a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Networking Opportunities</h5>
+              <p>
+                Connect with peers, speakers, and analysts to expand your
+                network and gain new perspectives.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Indicators (Dotted) -->
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Call-to-Action Section -->
+      <div class="text-center mt-5">
+        <a href="#register" class="btn btn-primary btn-lg"
+          >Register for the Event</a
+        >
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
